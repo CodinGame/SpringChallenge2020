@@ -1,0 +1,31 @@
+read width:int height:int
+loop height read row:string(width)
+gameloop
+read myScore:int opponentScore:int
+read visiblePacCount:int
+loop visiblePacCount read pacId:int mine:bool x:int y:int typeId:word(9) speedTurnsLeft:int abilityCooldown:int
+read visiblePelletCount:int
+loop visiblePelletCount read x:int y:int value:int
+write MOVE 0 15 10
+
+
+STATEMENT
+Grab the pellets as fast as you can!
+
+INPUT
+width: size of the grid
+height: top left corner is (x=0, y=0)
+row: one line of the grid: space " " is floor, pound "#" is wall
+visiblePacCount: all your pacs and enemy pacs in sight
+visiblePelletCount: all pellets in sight
+pacId: pac number (unique within a team)
+mine: true if this pac is yours
+x: position in the grid
+y: position in the grid
+typeId: unused in wood leagues
+speedTurnsLeft: unused in wood leagues
+abilityCooldown: unused in wood leagues
+value: amount of points this pellet is worth
+
+OUTPUT
+MOVE <pacId> <x> <y>
