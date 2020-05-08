@@ -362,8 +362,8 @@ public class Game {
     public List<String> getCurrentFrameInfoFor(Player player) {
         List<String> lines = new ArrayList<String>();
 
-        int playerScore = player.getScore();
-        int opponentScore = gameManager.getActivePlayers().get((player.getIndex() + 1) % 2).getScore();
+        int playerScore = player.pellets;
+        int opponentScore = gameManager.getActivePlayers().get((player.getIndex() + 1) % 2).pellets;
         lines.add(String.format("%d %d", playerScore, opponentScore));
 
         List<Pacman> visiblePacmen = Config.FOG_OF_WAR ? findVisiblePacmen(player) : pacmen;

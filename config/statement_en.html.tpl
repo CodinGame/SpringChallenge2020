@@ -232,7 +232,7 @@
         <!-- END -->
 
         <!-- BEGIN level2 level3 level4 -->
-        <p>Pacs can receive the following commands:</p>
+        <p>Pacs can receive the following commands (a pac can only receive one command per turn):</p>
         <!-- END -->
 
         <ul>
@@ -478,13 +478,13 @@
             <var>visiblePacCount</var> for the amount of pacs visible to you
           </li>
         </ul>
-        <span class="statement-lineno">Next <var>visiblePacCount</var> lines:</span> Six integers: <br>
+        <span class="statement-lineno">Next <var>visiblePacCount</var> lines:</span> <br>
         <ul style="padding-left: 20px;padding-top:0;padding-bottom:0px">
           <li>
-            <var>pacId</var>: the pac's unique id
+            <var>pacId</var>: the pac's id (unique for a given player)
           </li>
           <li>
-            <var>mine</var>: the pac's owner (1 if this pac is yours, 0 otherwise)
+            <var>mine</var>: the pac's owner (1 if this pac is yours, 0 otherwise. Converted into a boolean type in most languages.)
           </li>
           <li>
             <var>x</var> & <var>y</var>: the pac's position
@@ -599,10 +599,13 @@
     <div class="blk">
       <div class="title">Constraints</div>
       <div class="text">
-        Response time per turn ≤
-        <const>50</const>ms
-        <br>Response time for the first turn ≤
-        <const>1000</const>ms
+        <!-- BEGIN level2 level3 level4 -->
+        <const>2</const> ≤ Number of pacs per player ≤ <const>5</const><br>
+        <const>29</const> ≤ <var>width</var> ≤ <const>35</const><br>
+        <const>10</const> ≤ <var>height</var> ≤ <const>17</const><br>
+        <!-- END -->
+        Response time per turn ≤ <const>50</const>ms
+        <br>Response time for the first turn ≤ <const>1000</const>ms
       </div>
     </div>
   </div>

@@ -237,7 +237,7 @@
         <!-- END -->
 
         <!-- BEGIN level2 level3 level4 -->
-      <p>Les pacs peuvent recevoir les commandes suivantes&nbsp;:</p>
+      <p>Les pacs peuvent recevoir les commandes suivantes (un pac ne peut recevoir qu'une commande par tour)&nbsp;:</p>
         <!-- END -->
       <ul>
         <li>
@@ -294,7 +294,7 @@
               <img src="https://static.codingame.com/servlet/fileservlet?id=43832428009785"
                 style="width: 400px; max-width: 100%" />
               <div style="margin: auto; width: 400px; max-width: 100%">
-                <em>L'action <action>SPEED</action> permet à un pac de se déplacer de 2 coups au l'un d'un seul pendant
+                <em>L'action <action>SPEED</action> permet à un pac de se déplacer de 2 coups au lieu d'un seul pendant
                   les 5 prochains tours.</em></div>
             </div>
           </li>
@@ -461,11 +461,11 @@
       <div class="title">Entrées d'initialisation
       </div>
       <div class="text">
-        <span class="statement-lineno">Ligne 1&nbsp;: deux entiers <var>width</var> et <var>height</var> pour la taille
-          de la grille.</span><br>
-        <span class="statement-lineno">Les <var>height</var> lignes suivantes&nbsp;: une chaîne de <var>width</var>
+        <span class="statement-lineno">Ligne 1&nbsp;:</span> deux entiers <var>width</var> et <var>height</var> pour la taille
+          de la grille.<br>
+        <span class="statement-lineno">Les <var>height</var> lignes suivantes&nbsp;:</span> une chaîne de <var>width</var>
           caractères représentant les cases de cette ligne&nbsp;: <const>' '</const> pour du sol et <const>'#'</const>
-          pour un mur. </span>
+          pour un mur. 
         <br>
       </div>
     </div>
@@ -485,14 +485,14 @@
             <var>visiblePacCount</var>&nbsp;: le nombre de pacs visibles pour vous
           </li>
         </ul>
-        <span class="statement-lineno">Les <var>visiblePacCount</var> lignes suivantes&nbsp;:</span> six entiers&nbsp;:
+        <span class="statement-lineno">Les <var>visiblePacCount</var> lignes suivantes&nbsp;:</span>
         <br>
         <ul style="padding-left: 20px;padding-top:0;padding-bottom:0px">
           <li>
-            <var>pacId</var>&nbsp;: l'ID unique du pac
+            <var>pacId</var>&nbsp;: l'ID du pac (unique par joueur)
           </li>
           <li>
-            <var>mine</var>&nbsp;: le propriétaire du pac (1 si ce pac est à vous, 0 sinon)
+            <var>mine</var>&nbsp;: le propriétaire du pac (1 si ce pac est à vous, 0 sinon. Converti en un type booléen pour la majorité des langages.)
           </li>
           <li>
             <var>x</var> & <var>y</var>&nbsp;: la position du pac
@@ -598,6 +598,11 @@
     <div class="blk">
       <div class="title">Contraintes</div>
       <div class="text">
+        <!-- BEGIN level2 level3 level4 -->
+        <const>2</const> ≤ Nombre de pacs par joueur ≤ <const>5</const><br>
+        <const>29</const> ≤ <var>width</var> ≤ <const>35</const><br>
+        <const>10</const> ≤ <var>height</var> ≤ <const>17</const><br>
+        <!-- END -->
         Temps de réponse par tour ≤ <const>50</const>ms<br>
         Temps de réponse au premier tour ≤ <const>1000</const>ms
       </div>
