@@ -115,7 +115,7 @@ public class CommandManager {
                         throw new GameException(
                             String.format(
                                 "Pac %d (%s) cannot reach its target (%d, %d) because it is out of grid!",
-                                pac.getId(),
+                                pac.getNumber(),
                                 pac.getOwner().getColor(),
                                 x,
                                 y
