@@ -94,8 +94,10 @@ public class Pacman {
 
     public void turnReset() {
         message = null;
-        tickAbilityDuration();
-        tickAbilityCooldown();
+        if (!isDead()) {
+            tickAbilityDuration();
+            tickAbilityCooldown();
+        }
         setAbilityToUse(null);
         setCurrentPathStep(0);
         blocked = false;

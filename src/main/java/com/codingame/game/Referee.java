@@ -18,6 +18,7 @@ import com.google.inject.Singleton;
 @Singleton
 public class Referee extends AbstractReferee {
 
+    private static final int MAX_TURNS = 200;
     @Inject private MultiplayerGameManager<Player> gameManager;
     @Inject private CommandManager commandManager;
     @Inject private Game game;
@@ -25,6 +26,8 @@ public class Referee extends AbstractReferee {
 
     long seed;
     boolean gameOverFrame;
+
+    int maxFrames;
 
     @Override
     public void init() {
@@ -40,9 +43,11 @@ public class Referee extends AbstractReferee {
             computeConfiguration(gameManager.getGameParameters());
         }
 
+        maxFrames = MAX_TURNS;
+
         try {
             gameManager.setFrameDuration(500);
-            gameManager.setMaxTurns(gameManager.getPlayerCount() > 3 ? 100 : 200);
+            gameManager.setMaxTurns(MAX_TURNS);
             gameManager.setTurnMaxTime(50);
 
             game.init(seed);
@@ -77,6 +82,8 @@ public class Referee extends AbstractReferee {
         if (!gameOverFrame) {
             if (game.isSpeedTurn()) {
                 game.performGameSpeedUpdate();
+                maxFrames++;
+                gameManager.setMaxTurns(maxFrames);
             } else {
                 game.resetGameTurnData();
 

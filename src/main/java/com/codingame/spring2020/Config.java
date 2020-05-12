@@ -33,6 +33,7 @@ public class Config {
     public static boolean SWITCH_ABILITY_AVAILABLE;
     public static int MIN_PACS_PER_PLAYER = 2;
     public static int MAX_PACS_PER_PLAYER = 5;
+    public static boolean PROVIDE_DEAD_PACS;
 
     public static void setDefaultValueByLevel(LeagueRules rules) {
         NUMBER_OF_CHERRIES = rules.numberOfCherries;
@@ -44,6 +45,7 @@ public class Config {
         SWITCH_ABILITY_AVAILABLE = rules.switchAbilityAvailable;
         MIN_PACS_PER_PLAYER = rules.minPacsPerPlayer;
         MAX_PACS_PER_PLAYER = rules.maxPacsPerPlayer;
+        PROVIDE_DEAD_PACS = rules.provideDeadPacs;
     }
 
     public static void apply(Properties params) {
@@ -64,6 +66,7 @@ public class Config {
         SWITCH_ABILITY_AVAILABLE = getFromParams(params, "SWITCH_ABILITY_AVAILABLE", SWITCH_ABILITY_AVAILABLE);
         MIN_PACS_PER_PLAYER = getFromParams(params, "MIN_PACS_PER_PLAYER", MIN_PACS_PER_PLAYER);
         MAX_PACS_PER_PLAYER = getFromParams(params, "MAX_PACS_PER_PLAYER", MAX_PACS_PER_PLAYER);
+        PROVIDE_DEAD_PACS = getFromParams(params, "PROVIDE_DEAD_PACS", PROVIDE_DEAD_PACS);
     }
 
     private static int getFromParams(Properties params, String name, int defaultValue) {

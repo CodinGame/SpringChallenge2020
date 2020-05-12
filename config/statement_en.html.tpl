@@ -1,8 +1,8 @@
-<!-- LEAGUES level1 level2 level3 level4 -->
+<!-- LEAGUES level1 level2 level3 level4 level5 -->
 <div id="statement_back" class="statement_back" style="display: none"></div>
 <div class="statement-body">
   <!-- LEAGUE ALERT -->
-  <!-- BEGIN level1 level2 level3 -->
+  <!-- BEGIN level1 level2 level3 level4 -->
   <div style="color: #7cc576; 
     background-color: rgba(124, 197, 118,.1);
     padding: 20px;
@@ -43,6 +43,15 @@
       </ul>
       <br>See the updated statement for details.</span>
     <!-- END -->
+    <!-- BEGIN level4 -->
+    <p style="text-align: center; font-weight: 700; margin-bottom: 6px;">
+      Summary of new rules
+    </p>
+    <span class="statement-league-alert-content">
+      You can now see pacs that have died.
+      <br><br>
+      See the updated statement for details.</span>
+    <!-- END -->
   </div>
   <!-- END -->
   <!-- GOAL -->
@@ -58,7 +67,7 @@
       <div>
         Eat more pellets than your opponent!
 
-        <!-- BEGIN level3 level4 -->
+        <!-- BEGIN level3 level4 level5 -->
         And avoid getting killed!
         <!-- END -->
 
@@ -76,7 +85,7 @@
           alt="Eat more pellets than your opponent!" style="width: 60%" />
         <!-- END -->
 
-        <!-- BEGIN level3 level4 -->
+        <!-- BEGIN level3 level4 level5 -->
         <img src="https://static.codingame.com/servlet/fileservlet?id=43832345828298"
           alt="Eat more pellets than your opponent!" style="width: 60%" />
         <!-- END -->
@@ -97,7 +106,7 @@
         <!-- BEGIN level1 -->
         In this first league, each player controls a single pac that can move along the grid.
         <!-- END -->
-        <!-- BEGIN level2 level3 level4 -->
+        <!-- BEGIN level2 level3 level4 level5 -->
         Each player controls a team of pacs that can move along the grid.
         <!-- END -->
       </p>
@@ -132,7 +141,7 @@
           <!-- BEGIN level1 -->
           Landing on a pellet with your <strong>pac</strong> scores you <const>1&nbsp;point</const>.
           <!-- END -->
-          <!-- BEGIN level2 level3 level4 -->
+          <!-- BEGIN level2 level3 level4 level5 -->
           Landing on a pellet with one of your <strong>pacs</strong> scores you <const>1&nbsp;point</const>.
           <!-- END -->
         </p>
@@ -163,7 +172,7 @@
         <div class="statement-new-league-rule">
           <!-- END -->
 
-          <!-- BEGIN level2 level3 level4 -->
+          <!-- BEGIN level2 level3 level4 level5 -->
           <p>Each player starts with the same number of pacs, up to <const>5</const> each.</p>
           <!-- END -->
           <!-- BEGIN level2 -->
@@ -182,7 +191,7 @@
         <div class="statement-new-league-rule">
           <!-- END -->
 
-          <!-- BEGIN level3 level4 -->
+          <!-- BEGIN level3 level4 level5 -->
           <p>Your pacs <strong>cannot see through walls</strong>.
             On each turn you have vision on all of the pellets and enemy pacs that can be connected by a continuous
             straight line to any one of your pacs. Super-pellets are so bright that they can be seen from everywhere!
@@ -211,7 +220,7 @@
         <div class="statement-new-league-rule">
           <!-- END -->
 
-          <!-- BEGIN level3 level4 -->
+          <!-- BEGIN level3 level4 level5 -->
           <p>
             Each pac is of a given <var>type</var> (<action>ROCK</action>, <action>PAPER</action> or <action>SCISSORS
             </action>).
@@ -231,7 +240,7 @@
         <p>Pacs can receive the following command:</p>
         <!-- END -->
 
-        <!-- BEGIN level2 level3 level4 -->
+        <!-- BEGIN level2 level3 level4 level5 -->
         <p>Pacs can receive the following commands (a pac can only receive one command per turn):</p>
         <!-- END -->
 
@@ -256,7 +265,7 @@
           <ul>
             <!-- END -->
 
-            <!-- BEGIN level3 level4 -->
+            <!-- BEGIN level3 level4 level5 -->
             <li>
               <action>SWITCH</action>: it will morph into a new form. The available pac types are:
               <ul>
@@ -321,7 +330,7 @@
         <div class="statement-new-league-rule">
           <!-- END -->
 
-          <!-- BEGIN level3 level4 -->
+          <!-- BEGIN level3 level4 level5 -->
           <p>
             Crossing paths or landing on the same cell as another pac will cause a <b>collision</b> to occur. This is how collisions are resolved:
           </p>
@@ -335,7 +344,7 @@
           <br>
           <!-- END -->
 
-          <!-- BEGIN level3 level4 -->
+          <!-- BEGIN level3 level4 level5 -->
           <h3 style="font-size: 14px;
       font-weight: 700;
       padding-top: 5px;
@@ -372,7 +381,7 @@
           <div class="statement-new-league-rule">
             <!-- END -->
 
-            <!-- BEGIN level3 level4 -->
+            <!-- BEGIN level3 level4 level5 -->
             <br>
             If all of a player's pacs are dead, all remaining pellets are automatically scored by any surviving pacs and
             the game is stopped.
@@ -428,7 +437,7 @@
     </div>
     </div>
 
-    <!-- BEGIN level3 level4 -->
+    <!-- BEGIN level3 level4 level5 -->
     <!-- EXPERT RULES -->
     <div class="statement-section statement-expertrules">
       <h2>
@@ -508,11 +517,30 @@
           <ul>
             <!-- END -->
 
-            <!-- BEGIN level3 level4 -->
+            <!-- BEGIN level3 level4 level5 -->
+
+            <!-- BEGIN level4 -->
+            </ul>
+            <div class="statement-new-league-rule">
+            <ul>
+            <!-- END -->
+
             <li>
               <var>typeId</var>: the pac's type (<action>ROCK</action> or <action>PAPER</action> or <action>SCISSORS
-              </action>)
+              </action>).
+              <!-- BEGIN level4 level5 -->
+
+              If the pac is dead, its type is now <action>DEAD</action>.
+
+              <!-- END -->
             </li>
+
+            <!-- BEGIN level4 -->
+            </ul>
+            </div>
+            <ul>
+            <!-- END -->
+
             <li>
               <var>speedTurnsLeft</var>: the number of remaining turns before the speed effect fades
             </li>
@@ -545,7 +573,6 @@
     <div class="blk">
       <div class="title">Output</div>
       <div class="text">
-        <span class="statement-lineno">
           <!-- BEGIN level1 -->
           A single line with your action:
           <!-- END -->
@@ -554,7 +581,7 @@
           <div class="statement-new-league-rule">
             <!-- END -->
 
-            <!-- BEGIN level2 level3 level4 -->
+            <!-- BEGIN level2 level3 level4 level5 -->
             A single line with one or multiple commands separated by <const>|</const>. For example: <action>MOVE 0 5 7 |
               MOVE 1 16 10</action>.
             <!-- END -->
@@ -579,7 +606,7 @@
             <ul>
               <!-- END -->
 
-              <!-- BEGIN level3 level4 -->
+              <!-- BEGIN level3 level4 level5 -->
               <li>
                 <action>SPEED pacId</action>: the pac will be able to move by 2 steps during the next 5 turns.
               </li>
@@ -599,7 +626,7 @@
     <div class="blk">
       <div class="title">Constraints</div>
       <div class="text">
-        <!-- BEGIN level2 level3 level4 -->
+        <!-- BEGIN level2 level3 level4 level5 -->
         <const>2</const> ≤ Number of pacs per player ≤ <const>5</const><br>
         <const>29</const> ≤ <var>width</var> ≤ <const>35</const><br>
         <const>10</const> ≤ <var>height</var> ≤ <const>17</const><br>

@@ -10,6 +10,7 @@ public class LeagueRules {
     public boolean switchAbilityAvailable = true;
     public int minPacsPerPlayer = 2;
     public int maxPacsPerPlayer = 5;
+    public boolean provideDeadPacs = true;
     
     public static LeagueRules fromIndex(int index) {
         LeagueRules rules = new LeagueRules();
@@ -22,6 +23,9 @@ public class LeagueRules {
             rules.forOfWar = false;
             rules.speedAbilityAvailable = false;
             rules.switchAbilityAvailable = false;
+        }
+        if (index <= 3) {
+            rules.provideDeadPacs = false;
         }
 
         return rules;

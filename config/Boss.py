@@ -82,10 +82,11 @@ while True:
    
     pac = Unit(id, me, pos, type)
 
-    if me == 1:
-      my_pacmen.append(pac)
-    else:
-      foe_pacmen.append(pac)
+    if type != 'DEAD':
+      if me == 1:
+        my_pacmen.append(pac)
+      else:
+        foe_pacmen.append(pac)
   
   pellet_count = int(input())  
   for n in range(pellet_count):

@@ -30,6 +30,10 @@ public class Player extends AbstractMultiplayerPlayer {
         return pacmen.stream().filter(pac -> !pac.isDead());
     }
 
+    public Stream<Pacman> getDeadPacmen() {
+        return pacmen.stream().filter(pac -> pac.isDead());
+    }
+
     @Override
     public int getExpectedOutputLines() {
         return 1;

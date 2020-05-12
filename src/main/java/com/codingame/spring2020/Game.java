@@ -1,6 +1,7 @@
 
 package com.codingame.spring2020;
 
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -344,7 +345,7 @@ public class Game {
             pac.getOwner() == player ? 1 : 0,
             pac.getPosition().x,
             pac.getPosition().y,
-            pac.getType().name().toUpperCase(),
+            pac.isDead() ? "DEAD" : pac.getType().name().toUpperCase(),
             pac.getAbilityDuration(),
             pac.getAbilityCooldown()
         );
@@ -360,13 +361,17 @@ public class Game {
     }
 
     public List<String> getCurrentFrameInfoFor(Player player) {
+        Player opponentPlayer = gameManager.getActivePlayers().get((player.getIndex() + 1) % 2);
         List<String> lines = new ArrayList<String>();
 
-        int playerScore = player.pellets;
-        int opponentScore = gameManager.getActivePlayers().get((player.getIndex() + 1) % 2).pellets;
-        lines.add(String.format("%d %d", playerScore, opponentScore));
+        lines.add(String.format("%d %d", player.pellets, opponentPlayer.pellets));
 
         List<Pacman> visiblePacmen = Config.FOG_OF_WAR ? findVisiblePacmen(player) : pacmen;
+
+        if (Config.PROVIDE_DEAD_PACS) {
+            Stream.concat(player.getDeadPacmen(), opponentPlayer.getDeadPacmen())
+                .forEach(visiblePacmen::add);
+        }
 
         lines.add(Integer.toString(visiblePacmen.size()));
         visiblePacmen
