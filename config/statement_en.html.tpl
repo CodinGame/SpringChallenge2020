@@ -220,12 +220,22 @@
         <div class="statement-new-league-rule">
           <!-- END -->
 
-          <!-- BEGIN level3 level4 level5 -->
+
+          <!-- BEGIN level3 -->
           <p>
             Each pac is of a given <var>type</var> (<action>ROCK</action>, <action>PAPER</action> or <action>SCISSORS
-            </action>).
+            </action>). In the next league, pacs that have died will be of type <action>DEAD</action>.
           </p>
+          <!-- END -->
 
+          <!-- BEGIN level4 level5 -->
+          <p>
+            Each pac is of a given <var>type</var> (<action>ROCK</action>, <action>PAPER</action> or <action>SCISSORS
+            </action>). Pacs that have died are of type <action>DEAD</action>.
+          </p>
+          <!-- END -->
+
+          <!-- BEGIN level3 level4 level5 -->
           <p>Each pac has access to two <b>abilities</b> (<action>SWITCH</action> and <action>SPEED</action>) that share
             the same <b>cooldown period</b> of <const>10</const> turns. The abilities of a pac are already available at
             the start of the game.</p>
@@ -533,6 +543,11 @@
               If the pac is dead, its type is now <action>DEAD</action>.
 
               <!-- END -->
+              <!-- BEGIN level3 -->
+
+              In the next league, a pac that has died will be of type <action>DEAD</action>.
+
+              <!-- END -->
             </li>
 
             <!-- BEGIN level4 -->
@@ -654,6 +669,7 @@ text-align: left;">
       <li>Pacs will be in rock, paper or scissor form.</li>
       <li>Pacs will be able to kill each other.</li>
       <li>Pacs will be able to swap their type or perform a speed boost.</li>
+      <li>Input data will include pacs that have died.</li>
     </ul>
   </div>
   <!-- END -->

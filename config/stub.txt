@@ -1,5 +1,5 @@
 read width:int height:int
-loop height read row:string(width)
+loop height read row:string(37)
 gameloop
 read myScore:int opponentScore:int
 read visiblePacCount:int

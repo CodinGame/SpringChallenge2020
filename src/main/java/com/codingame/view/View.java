@@ -106,6 +106,7 @@ public class View {
     List<Bump> bumpers;
     List<Flash> flashers;
     List<PacmanView> dying;
+    List<Sprite> speedIndicators;
 
     private static double fitAspectRatioContains(int srcWidth, int srcHeight, int maxWidth, int maxHeight) {
         return Math.min((double) maxWidth / srcWidth, (double) maxHeight / srcHeight);
@@ -176,6 +177,31 @@ public class View {
             .setImage("HUD_Masque_BLUE")
             .setX(screenWidth - hudWidth)
             .setZIndex(1);
+
+        speedIndicators = new ArrayList<>();
+
+        gameManager.getPlayers().forEach(player -> {
+            int x = screenWidth / 2;
+            int color;
+            if (player.getIndex() == 0) {
+                x -= 180;
+                color = 0xb61e23;
+            } else {
+                x += 180;
+                color = player.getColorToken();
+            }
+            Sprite speedIndicator = gem.createSprite()
+                .setImage("fast.png")
+                .setY(16)
+                .setX(x)
+                .setAnchorX(0.5)
+                .setVisible(false)
+                .setZIndex(3)
+                .setScale(1.2)
+                .setTint(color);
+
+            speedIndicators.add(speedIndicator);
+        });
 
         hudGroup.add(hudRed, hudBlue);
 
@@ -1015,7 +1041,11 @@ public class View {
         }
     }
 
-    public void startOfTurn() {
+    public void startOfTurn(List<Player> speeders) {
+        speedIndicators.forEach(i -> i.setVisible(false));
+        speeders.forEach(p -> speedIndicators.get(p.getIndex()).setVisible(true));
+        gem.commitEntityState(0, speedIndicators.get(0), speedIndicators.get(1));
+
         switchers.clear();
         goners.clear();
         movers.clear();

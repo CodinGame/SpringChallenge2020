@@ -223,11 +223,19 @@
       <!-- BEGIN level3 -->
       <div class="statement-new-league-rule">
         <!-- END -->
-        <!-- BEGIN level3 level4 level5 -->
+        <!-- BEGIN level3 -->
         <p>
           Chaque pac possède un <var>type</var> donné (<action>ROCK</action>, <action>PAPER</action> ou <action>SCISSORS
-          </action>).
+          </action>). Dès la prochaine ligue, le type d'un pac mort sera <action>DEAD</action>.
         </p>
+        <!-- END -->
+        <!-- BEGIN level4 level5 -->
+        <p>
+          Chaque pac possède un <var>type</var> donné (<action>ROCK</action>, <action>PAPER</action> ou <action>SCISSORS
+          </action>). Le type d'un pac mort est <action>DEAD</action>.
+        </p>
+        <!-- END -->
+        <!-- BEGIN level3 level4 level5 -->
         <p>
           Chaque pac a accès à deux <b>compétences</b> (<action>SWITCH</action> et <action>SPEED</action>) qui partagent
           le même <b>temps de rechargement</b> de <const>10</const> tours.
@@ -538,6 +546,9 @@
                 <!-- BEGIN level4 level5 -->
                 Si le pac est mort, son type est maintenant <action>DEAD</action>.
                 <!-- END -->
+                <!-- BEGIN level2 -->
+                Dès la prochaine ligue, si un pac est mort, son type sera <action>DEAD</action>.
+                <!-- END -->
             </li>
 
             <!-- BEGIN level4 -->
@@ -654,6 +665,7 @@
       <li>les pacs auront la forme de pierre, feuille, et ciseaux.</li>
       <li>les pacs pourront s'entretuer.</li>
       <li>les pacs pourront changer de forme et accélérer.</li>
+      <li>les données d'entrée contiendront les pacs qui sont morts.</li>
     </ul>
   </div>
   <!-- END -->
